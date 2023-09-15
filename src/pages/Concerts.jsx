@@ -26,18 +26,23 @@ export default function Concerts() {
 
     const concertElements = concerts.map(concert => {
         return (
-            <div key={concert.id}>
-                <Link to={concert.id} className="concert-tile">
-                    <img className="concert-img" src={concert.mainImg} />
-                    <div className="outer-container">
-                        <h1 className="concert-tour">{concert.tour}</h1>
-                        <h2 className="concert-headliner">{concert.headliner}</h2>
-                        <p className="concert-acts">{joinSupportingActs(concert.supportingActs)}</p>
-                        <p className="concert-date">{convertTimestamp(concert.date.seconds)}</p>
-                        <div className="inner-container">
-                            <i className="fa-solid fa-location-dot location-icon"></i>
-                            <p className="concert-location">{concert.location}</p>
-                        </div>
+            <div key={concert.id} className="my-4 h-auto w-full border-b-2 border-accent hover:cursor-pointer focus:shadow-lg">
+
+                <Link to={concert.id} className="no-underline text-black leading-snug tracking-tight flex flex-col items-center gap-4 my-8 sm:flex sm:flex-row sm:justify-around md:items-start lg:items-stretch">
+
+                    <img className="border-2 border-accent rounded-lg w-1/2 h-56 object-contain object-center lg:h-64" src={concert.mainImg} />
+
+                    <div className="text-center sm:text-left w-1/2">
+
+                        <h1 className="text-xl font-bold underline leading-snug sm:text-2xl lg:text-3xl lg:mb-2">{concert.tour}</h1>
+                    
+                        <h2 className="text-lg font-medium sm:text-xl lg:text-2xl">{concert.headliner}</h2>
+                    
+                        <p className="text-base font-normal sm:text-lg lg:text-xl">{joinSupportingActs(concert.supportingActs)}</p>
+                    
+                        <p className="uppercase text-xs font-semibold my-1 sm:text-sm lg:text-base">{convertTimestamp(concert.date.seconds)}</p>
+
+                        <p className="uppercase text-xs font-medium tracking-tight"><i className="w-4 text-accent fa-solid fa-location-dot"></i>{concert.location}</p>
                     </div>
                 </Link>
             </div>
@@ -56,7 +61,7 @@ export default function Concerts() {
     }
     
     return (
-        <div className="concert-elements">
+        <div className="md:grid md:grid-cols-2 md:gap-4">
             {concertElements}
         </div>
     )

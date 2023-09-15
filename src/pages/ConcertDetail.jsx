@@ -38,17 +38,26 @@ export default function ConcertDetail() {
     }
 
     return (
-        <div className="concert-detail-container">
+        <div className="p-2">
             <Link
+                className="font-semibold"
                 to="/"
             >&larr; Back</Link>
             {concert && (
-                <div className="concert-detail">
-                    <h1>{concert.tour}</h1>
-                    <h2>{concert.headliner}</h2>
-                    <h3>{joinSupportingActs(concert.supportingActs)}</h3>
-                    {/* <p>{convertTimestamp(concert.date.seconds)}</p> */}
-                    <p>{concert.location}</p>
+                <>
+                <div className="mt-4">
+
+                    <h1 className="text-xl font-bold underline sm:text-2xl lg:text-3xl lg:mb-2">{concert.tour}</h1>
+                    
+                    <h2 className="text-lg font-medium sm:text-xl lg:text-2xl">{concert.headliner}</h2>
+                    
+                    <h3 className="text-base font-normal sm:text-lg lg:text-xl">{joinSupportingActs(concert.supportingActs)}</h3>
+                    
+                    {/* <p className="uppercase text-xs font-semibold my-1 sm:text-sm lg:text-base">{convertTimestamp(concert.date.seconds)}</p> */}
+                    
+                    <p className="uppercase text-xs font-medium tracking-tight sm:text-sm lg:text-base"><i className="w-4 text-accent fa-solid fa-location-dot"></i>{concert.location}</p>
+                    </div>
+                    
                     <div className="img-gallery-container">                        
                         <ImageGallery
                             showFullscreenButton={false}
@@ -56,7 +65,8 @@ export default function ConcertDetail() {
                             additionalClass="image"
                             items={images} />
                     </div>
-                </div>
+                </>
+                
             )}
         </div>
     )

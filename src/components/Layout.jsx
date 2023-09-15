@@ -7,7 +7,7 @@ export default function Layout() {
     return (
         <div className="site-wrapper">
             <Header />
-            <main>
+            <main className="p-4 sm:p-8 lg:p-16">
                 <Outlet />
             </main>
             <Footer />
