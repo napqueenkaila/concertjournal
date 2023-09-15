@@ -30,7 +30,7 @@ export default function Concerts() {
 
                 <Link to={concert.id} className="no-underline text-black leading-snug tracking-tight flex flex-col items-center gap-4 my-8 sm:flex sm:flex-row sm:justify-around md:items-start lg:items-stretch">
 
-                    <img className="border-2 border-accent rounded-lg w-1/2 h-56 object-contain object-center lg:h-64" src={concert.mainImg} />
+                    <img className="border-2 border-accent rounded-lg w-1/2 h-56 object-cover object-center lg:h-64" src={concert.mainImg} />
 
                     <div className="text-center sm:text-left w-1/2">
 
@@ -42,7 +42,7 @@ export default function Concerts() {
                     
                         <p className="uppercase text-xs font-semibold my-1 sm:text-sm lg:text-base">{convertTimestamp(concert.date.seconds)}</p>
 
-                        <p className="uppercase text-xs font-medium tracking-tight"><i className="w-4 text-accent fa-solid fa-location-dot"></i>{concert.location}</p>
+                        <p className="uppercase text-xs sm:text-sm lg:text-base font-medium tracking-tight"><i className="w-4 text-accent fa-solid fa-location-dot"></i>{concert.location}</p>
                     </div>
                 </Link>
             </div>
@@ -61,7 +61,7 @@ export default function Concerts() {
     }
     
     return (
-        <div className="md:grid md:grid-cols-2 md:gap-4">
+        <div className="md:grid md:grid-cols-2 md:gap-x-8  xl:grid-cols-3 xl:gap-12">
             {concertElements}
         </div>
     )
